@@ -17,7 +17,6 @@ enum FormType { login, register }
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailFilter = new TextEditingController();
   final TextEditingController _passwordFilter = new TextEditingController();
-  final authC = Get.find<AuthenticationService>();
 
   String _email = "";
   String _password = "";
@@ -125,18 +124,6 @@ class _LoginPageState extends State<LoginPage> {
               child: new Text('Create an Account'),
               onPressed: _createAccountPressed,
             ),
-             Image.asset(
-                    'assets/Images/login.png',
-                    height: Get.height * 0.5,
-                  ),
-                  FloatingActionButton.extended(
-                    onPressed: () => authC.signInWithGoogle(),
-                    label: const Text('Sign In with Google'),
-                    icon: const Icon(
-                      Ionicons.logo_google,
-                      color: Colors.white,
-                    ),
-                  ),
             new TextButton(
               child: new Text('Have an account? Click here to login.'),
               onPressed: _formChange,
